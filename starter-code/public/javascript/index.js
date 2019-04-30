@@ -46,13 +46,16 @@ window.onload = () => {
   buttonCreate.onclick = () => {
     id = document.getElementById('new-character-form').value
 
-    //inputs
-    name = document.querySelector('input[name = "name"]').value
-    occupation = document.querySelector('input[occupation = "occupation"]').value
-    weapon = document.querySelector('input[weapon = "weapon"]').value
-    //cartoon = document.querySelector('input[cartoon] = "checkbox"').value
+        //inputs
+        name = document.querySelector('[name=name]').value
+        occupation = document.querySelector('[name=occupation]').value
+        weapon = document.querySelector('[name=weapon]').value
+        cartoon = document.querySelector('[name=cartoon]').checked
 
-    axios.post(`${charactersAPI.Base_URL}${id}`, {name, occupation, weapon})
+    //axios.post(`${charactersAPI.Base_URL}${id}`, {name, occupation, weapon})
+    axios.post(`charactersAPI` + `/characters/${id}`, {name, occupation, weapon})
+    //axios.post(`${charactersAPI.Base_URL}` + `/characters/${id}`, {name, occupation, weapon})
+
     .then((data) => {
       console.log(data)
     })
